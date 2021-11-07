@@ -34,6 +34,7 @@ class FollowingFragment : Fragment() {
         val activity: UserDetailActivity? = activity as UserDetailActivity?
         username = activity?.sendData()
         viewModel.getFollowing(username)
+        binding.pgBar.visibility = View.VISIBLE
     }
 
     private fun observe(){
@@ -51,5 +52,6 @@ class FollowingFragment : Fragment() {
         }
         binding.rvItem.layoutManager = LinearLayoutManager(requireActivity(), LinearLayoutManager.VERTICAL, false)
         binding.rvItem.adapter = adapter
+        binding.pgBar.visibility = View.GONE
     }
 }

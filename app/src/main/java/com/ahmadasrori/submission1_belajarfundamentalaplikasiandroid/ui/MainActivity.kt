@@ -2,6 +2,7 @@ package com.ahmadasrori.submission1_belajarfundamentalaplikasiandroid.ui
 
 import android.content.Intent
 import android.os.Bundle
+import android.view.View
 import android.view.inputmethod.EditorInfo
 import androidx.appcompat.app.AppCompatActivity
 import androidx.recyclerview.widget.LinearLayoutManager
@@ -41,6 +42,7 @@ class MainActivity : AppCompatActivity() {
         binding.etSearch.setOnEditorActionListener { v, actionId, event ->
             var handled = false
             if (EditorInfo.IME_ACTION_DONE == actionId || EditorInfo.IME_ACTION_UNSPECIFIED == actionId) {
+                binding.pgBar.visibility = View.VISIBLE
                 viewModel.search(v.text.toString())
                 handled = true
             }
@@ -56,6 +58,7 @@ class MainActivity : AppCompatActivity() {
         }
         binding.rvItem.layoutManager = LinearLayoutManager(this, LinearLayoutManager.VERTICAL, false)
         binding.rvItem.adapter = adapter
+        binding.pgBar.visibility = View.GONE
     }
 
 }
