@@ -1,13 +1,12 @@
-package com.ahmadasrori.submission1_belajarfundamentalaplikasiandroid
+package com.ahmadasrori.submission1_belajarfundamentalaplikasiandroid.ui
 
 import android.content.Intent
-import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
-import android.util.Log
-import android.view.animation.Animation
 import android.view.animation.AnimationUtils
-import com.ahmadasrori.submission1_belajarfundamentalaplikasiandroid.databinding.ActivityMainBinding
+import androidx.appcompat.app.AppCompatActivity
+import com.ahmadasrori.submission1_belajarfundamentalaplikasiandroid.R
 import com.ahmadasrori.submission1_belajarfundamentalaplikasiandroid.databinding.ActivitySplashScreenBinding
+import com.ahmadasrori.submission1_belajarfundamentalaplikasiandroid.util.Constant.DELAY
 
 class SplashScreenActivity : AppCompatActivity() {
     private val binding: ActivitySplashScreenBinding by lazy {
@@ -25,9 +24,8 @@ class SplashScreenActivity : AppCompatActivity() {
         val splashTread: Thread = object : Thread() {
             override fun run() {
                 try {
-                    sleep(2000)
+                    sleep(DELAY.toLong())
                 } catch (e: InterruptedException) {
-                    // do nothing
                 } finally {
                     val i = Intent(this@SplashScreenActivity, MainActivity::class.java)
                     startActivity(i)

@@ -1,89 +1,126 @@
 <?xml version="1.0" encoding="utf-8"?>
-<layout xmlns:android="http://schemas.android.com/apk/res/android">
-    <RelativeLayout
-        android:padding="8dp"
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:padding="8dp">
+    <de.hdodenhof.circleimageview.CircleImageView
+        android:id="@+id/ivProfile"
+        android:layout_width="120dp"
+        android:layout_height="120dp"
+        android:layout_marginTop="16dp"
+        android:src="@color/black"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+    <TextView
+        android:id="@+id/tvName"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/ivProfile"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="8dp"
+        android:text="@string/name"
+        android:textSize="18sp"
+        android:textStyle="bold"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/ivProfile" />
+    <TextView
+        android:id="@+id/tvUsername"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/tvName"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="8dp"
+        android:text="@string/username"
+        android:textSize="14sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/tvName" />
+    <LinearLayout
+        android:layout_marginTop="8dp"
+        app:layout_constraintTop_toBottomOf="@+id/tvUsername"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        android:layout_below="@id/tvUsername"
+        android:id="@+id/layoutDetail"
         android:layout_width="match_parent"
-        android:layout_height="match_parent">
-        <de.hdodenhof.circleimageview.CircleImageView
-            android:layout_width="120dp"
-            android:layout_height="120dp"
-            android:src="@color/black"
-            android:id="@+id/ivProfile"
-            android:layout_centerHorizontal="true"/>
-
+        android:layout_height="wrap_content"
+        android:weightSum="3"
+        android:orientation="horizontal">
         <TextView
-            android:id="@+id/tvName"
+            android:gravity="center"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_below="@id/ivProfile"
-            android:layout_centerHorizontal="true"
-            android:layout_marginTop="8dp"
-            android:text="Name"
-            android:textSize="18sp"
-            android:textStyle="bold" />
-
-        <TextView
-            android:id="@+id/tvUsername"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_below="@id/tvName"
-            android:layout_centerHorizontal="true"
-            android:layout_marginTop="8dp"
-            android:text="Username"
-            android:textSize="14sp" />
-        <LinearLayout
-            android:layout_below="@id/tvUsername"
-            android:id="@+id/layoutDetail"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:weightSum="3"
-            android:orientation="horizontal">
-            <TextView
-                android:gravity="center"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:id="@+id/tvRepository"
-                android:text="Repository"
-                android:textSize="12sp"
-                android:layout_weight="1"
-                android:layout_marginTop="8dp"/>
-            <TextView
-                android:gravity="center"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:id="@+id/tvFollower"
-                android:text="Follower"
-                android:textSize="12sp"
-                android:layout_weight="1"
-                android:layout_marginTop="8dp"/>
-            <TextView
-                android:gravity="center"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:id="@+id/tvFollowing"
-                android:text="Following"
-                android:textSize="12sp"
-                android:layout_weight="1"
-                android:layout_marginTop="8dp"/>
-        </LinearLayout>
-
-        <TextView
-            android:id="@+id/tvCompany"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_below="@id/layoutDetail"
-            android:layout_centerHorizontal="true"
-            android:layout_marginTop="8dp"
-            android:text="Company"
-            android:textSize="14sp" />
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:id="@+id/tvLocation"
-            android:text="Location"
-            android:layout_below="@id/tvCompany"
-            android:layout_centerHorizontal="true"
-            android:textSize="14sp"
+            android:id="@+id/tvRepository"
+            android:text="@string/repository"
+            android:textSize="12sp"
+            android:layout_weight="1"
             android:layout_marginTop="8dp"/>
-    </RelativeLayout>
-</layout>
+        <TextView
+            android:gravity="center"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/tvFollower"
+            android:text="@string/follower"
+            android:textSize="12sp"
+            android:layout_weight="1"
+            android:layout_marginTop="8dp"/>
+        <TextView
+            android:gravity="center"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/tvFollowing"
+            android:text="@string/following"
+            android:textSize="12sp"
+            android:layout_weight="1"
+            android:layout_marginTop="8dp"/>
+    </LinearLayout>
+    <TextView
+        android:layout_marginTop="8dp"
+        app:layout_constraintTop_toBottomOf="@+id/layoutDetail"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        android:id="@+id/tvCompany"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/layoutDetail"
+        android:layout_centerHorizontal="true"
+        android:text="@string/company"
+        android:textSize="14sp" />
+    <TextView
+        app:layout_constraintTop_toBottomOf="@+id/tvCompany"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/tvLocation"
+        android:text="@string/location"
+        android:layout_below="@id/tvCompany"
+        android:layout_centerHorizontal="true"
+        android:textSize="14sp"
+        android:layout_marginTop="8dp"/>
+
+    <com.google.android.material.tabs.TabLayout
+        app:layout_constraintTop_toBottomOf="@+id/tvLocation"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        android:layout_marginTop="8dp"
+        android:id="@+id/tabs"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="?attr/colorPrimary"
+        app:tabTextColor="@android:color/white"/>
+
+    <androidx.viewpager2.widget.ViewPager2
+        android:id="@+id/view_pager"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/tabs" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>

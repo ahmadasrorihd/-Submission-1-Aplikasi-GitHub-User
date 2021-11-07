@@ -1,16 +1,33 @@
 <?xml version="1.0" encoding="utf-8"?>
-<layout
-    xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    xmlns:tools="http://schemas.android.com/tools">
-    <RelativeLayout
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <EditText
+        android:id="@+id/etSearch"
         android:layout_width="match_parent"
-        android:layout_height="match_parent">
-        <androidx.recyclerview.widget.RecyclerView
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            tools:itemCount="5"
-            tools:listitem="@layout/user_item"
-            android:id="@+id/rvItem"/>
-    </RelativeLayout>
-</layout>
+        android:layout_height="48dp"
+        android:layout_margin="8dp"
+        android:background="@drawable/bg_item"
+        android:drawableEnd="@drawable/ic_baseline_search_24"
+        android:drawablePadding="8dp"
+        android:hint="@string/search_username"
+        android:imeOptions="actionSearch"
+        android:inputType="text"
+        android:padding="8dp"
+        app:actionViewClass="androidx.appcompat.widget.SearchView"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/rvItem"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/etSearch"
+        tools:itemCount="5"
+        tools:listitem="@layout/user_item" />
+</androidx.constraintlayout.widget.ConstraintLayout>
